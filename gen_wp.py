@@ -25,7 +25,9 @@ def gen_wp(vals):
         print "Can't find table in " + vals['HTML']
         sys.exit(-1)
     table = tm.group(1)
-    s = ["<b><a href=\"" + pdfurl + "\">" + vals['TITLE'] + "</a></b>",
+    s = [vals['AUTHORTITLE'] + " - " + vals['TITLE'],
+         "",
+         "<b><a href=\"" + pdfurl + "\">" + vals['TITLE'] + "</a></b>",
          vals['RAWAUTHORS'],
          "direct link: <a href=\"" + site + vals['URL'] + "\">" + site + vals['URL']+"</a>",
          vals['MONTH'] + " " + vals['YEAR'],
