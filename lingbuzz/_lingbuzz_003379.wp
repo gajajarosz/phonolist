@@ -1,0 +1,9 @@
+_lingbuzz_003379
+Crippen (2017) - Using TikZ for linguistic diagrams
+
+<b><a href="http://ling.auf.net/lingbuzz/003379/current.pdf?_s=P77IgsL8wZa2PzYF">Using TikZ for linguistic diagrams</a></b>
+<a href="http://ling.auf.net/lingbuzz/003379?_s=l0B7OFj_4BQwG6bE&amp;_k=KiSFzC9SgQXGnH_Q&amp;1">James Crippen</a>
+direct link: <a href="http://ling.auf.net/lingbuzz/003379">http://ling.auf.nethttp://ling.auf.net/lingbuzz/003379</a>
+March 2017
+TikZ is a package for LaTeX that provides a powerful language for specifying graphics. TikZ can easily produce the kinds of trees and diagrams that are used in linguistics. This document provides a friendly introduction with many examples for using TikZ to draw syntactic trees, autosegmental diagrams, and lattices. TikZ is also combined with ExPex to produce numbered examples containing movement arrows, graphical annotations, and small diagrams. The illustrations of TikZ in this document are all oriented toward manuscripts and articles, but because TikZ is maintained by the same people behind the beamer package, most if not all of the techniques presented in this document can also be used in slides and posters.
+<table cellspacing="15" valign="top"><tr><td>Format: </td><td>[ <a href="http://ling.auf.net/lingbuzz/003379/current.pdf?_s=vED6mI-HKd1L6TKT">pdf</a> ]</td></tr><tr><td>Reference: </td><td>lingbuzz/003379<br/><font size="-1"> (please use that when you cite this article)</font></td></tr><tr><td>Published in: </td><td>unpublished manuscript, University of British Columbia</td></tr><tr><td>keywords: </td><td>diagrams, trees, matrices, visualization, latex, syntax, phonology</td></tr>
