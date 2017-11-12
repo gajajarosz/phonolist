@@ -26,7 +26,7 @@ def gen_wp(vals):
          "",
          "<b><a href=\"" + vals['PDFURL'] + "\">" + vals['TITLE'] + "</a></b>",
          vals['RAWAUTHORS'],
-         "direct link: <a href=\"" + vals['URL'] + "\">" + site + vals['URL']+"</a>",
+         "direct link: <a href=\"" + vals['URL'] + "\">" + vals['URL'] + "</a>",
          vals['MONTH'] + " " + vals['YEAR'],
          vals['ABSTRACT'],
          table
