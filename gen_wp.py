@@ -9,17 +9,14 @@ def get_store(fn):
     tr = {}
     fh = open(fn, 'r')
     for line in fh:
-        line = line.replace('^M', ' ')
-        v = line.strip().split(": ", 1)                
+        line = line.replace(r'\r', ' ')
+        v = line.strip().split(": ", 1)
         tr[v[0]] = v[1]    
     fh.close()
     return tr
 
 def gen_wp(vals):
     site = 'http://ling.auf.net'
-    pdfurl = vals['PDFURL']
-    pdfurl.strip('"')
-    pdfurl = site + pdfurl
     tm = re.search('''(\<table.*$)''', vals['HTML'], flags=re.IGNORECASE)
     if (tm == None):
         print "Can't find table in " + vals['HTML']
@@ -27,9 +24,9 @@ def gen_wp(vals):
     table = tm.group(1)
     s = [vals['AUTHORTITLE'] + " - " + vals['TITLE'],
          "",
-         "<b><a href=\"" + pdfurl + "\">" + vals['TITLE'] + "</a></b>",
+         "<b><a href=\"" + vals['PDFURL'] + "\">" + vals['TITLE'] + "</a></b>",
          vals['RAWAUTHORS'],
-         "direct link: <a href=\"" + site + vals['URL'] + "\">" + site + vals['URL']+"</a>",
+         "direct link: <a href=\"" + vals['URL'] + "\">" + site + vals['URL']+"</a>",
          vals['MONTH'] + " " + vals['YEAR'],
          vals['ABSTRACT'],
          table

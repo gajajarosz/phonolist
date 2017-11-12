@@ -14,6 +14,7 @@ def processlingbuzz(parturl):
     # authors (last names only?)
     # date (year only?)
     # html content
+    base = "http://ling.auf.net"
     url = "http://ling.auf.net" + parturl
     id = parturl.replace("/", "_")
     id = id.replace("?", "_")
@@ -28,15 +29,17 @@ def processlingbuzz(parturl):
         for s in f.read():
             str += s
         str = str.replace("\n", ' ')
-        str = str.replace("^M", ' ')
-        str = str.replace('^M', ' ')
-        m = re.search('''<center>(.*?<a href=([^\>]+?)>([^\<]+)</a>.*?<br/>(.*?)<br/>([A-Za-z]+) +([0-9]+).*?</p>(.*)<table.*)<tr><td>Downloaded:''', str, flags=re.IGNORECASE)
+        str = str.replace('\r', ' ')
+#        str = str.replace("^M", ' ')
+        str = str.replace('href="/lingbuzz', 'href="'+base+'/lingbuzz')
+        m = re.search('''<center>(.*?<a href="?([^\>]+?)"?>([^\<]+)</a>.*?<br/>(.*?)<br/>([A-Za-z]+) +([0-9]+).*?</p>(.*)<table.*)<tr><td>Downloaded:''', str, flags=re.IGNORECASE)
         if (m == None):
             print "CANNOT parse str for " + url + ": " + str
             sys.exit(-1)
         text = m.group(1)
         pdfurl = m.group(2)
         title = m.group(3)
+        rawauthors = m.group(4)
         rawauthors = m.group(4)
         month = m.group(5)
         year = m.group(6)
