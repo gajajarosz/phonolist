@@ -11,7 +11,11 @@ def get_store(fn):
     for line in fh:
         line = line.replace(r'\r', ' ')
         v = line.strip().split(": ", 1)
-        tr[v[0]] = v[1]    
+        if len(v)>1: tr[v[0]] = v[1]
+        else: 
+            v[0]=v[0].replace(r':','')
+            tr[v[0]] = ""
+    #print tr
     fh.close()
     return tr
 
