@@ -87,8 +87,8 @@ def fetchlingbuzz():
         for i in re.findall('''\[pdf\]</a></td><td><a href=["'](.[^"']+)["']''', urllib.urlopen(url).read(), re.I):
             if (counter < maxtoget):
                 alreadydone = processlingbuzz(i)
-                if (alreadydone):
-                    return counter
+#                if (alreadydone):
+#                    return counter
                 counter += 1
         if (pcounter == counter):
         # if we didn't find anything on the last page, stop looking
