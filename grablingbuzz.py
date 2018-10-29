@@ -5,7 +5,7 @@ import os.path
 import sys
 
 
-maxtoget = 100
+maxtoget = 100000
 localstore="lingbuzz"
 
 def processlingbuzz(parturl):
