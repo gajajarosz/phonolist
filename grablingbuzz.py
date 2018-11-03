@@ -19,7 +19,7 @@ def processlingbuzz(parturl):
     id = parturl.replace("/", "_")
     id = id.replace("?", "_")
     outfn = "%s/%s" % (localstore, id)
-    print "storing data in " + outfn
+    print "Downloading " + id
     if os.path.isfile(outfn):
         print outfn + " already exists"
         return True
@@ -46,6 +46,12 @@ def processlingbuzz(parturl):
         abstract = m.group(7)
         authors = []
         lastnames = []
+
+        has_prev_v = (re.search('''<td>previous version''', text))
+        if (has_prev_v != None):
+            printf("  Entry for %s is an update; skipping\n", id)
+            next
+
         for a in re.findall('''>([^<>]+)</a>''', rawauthors, re.I):
             authors.append(a)
             am = re.search('''((((V[oa]n)|(De)) )?[^ ]+)\s*$''', a, re.I)
@@ -57,6 +63,8 @@ def processlingbuzz(parturl):
         elif (len(lastnames) > 2):
             authortitle = ", ".join(lastnames[0:-1]) + " & " + lastnames[-1]
         authortitle += " (" + year + ")"
+
+        print "storing data in " + outfn
 
         of = open(outfn, 'w')        
         of.write("ID: lingbuzz_" + id + "\n")
