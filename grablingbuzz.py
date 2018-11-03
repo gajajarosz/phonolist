@@ -64,23 +64,26 @@ def processlingbuzz(parturl):
             authortitle = ", ".join(lastnames[0:-1]) + " & " + lastnames[-1]
         authortitle += " (" + year + ")"
 
-        print "storing data in " + outfn
+        datefn = "%s/%s_%s_%s" % (localstore, year, month, id)
 
-        of = open(outfn, 'w')        
-        of.write("ID: lingbuzz_" + id + "\n")
-        of.write("URL: " + url + "\n")
-        of.write("PDFURL: " + pdfurl + "\n")
-        of.write("HEADER: " + authortitle + " - " + title + "\n")
-        of.write("TITLE: " + title + "\n")
-        of.write("AUTHORTITLE: " + authortitle + "\n")
-        of.write("RAWAUTHORS: " + rawauthors + "\n")
-        of.write("AUTHORS: " + ", ".join(authors) + "\n")
-        of.write("LASTNAMES: " + ", ".join(lastnames) + "\n")        
-        of.write("MONTH: " + month + "\n")
-        of.write("YEAR: " + year + "\n")
-        of.write("ABSTRACT: " + abstract + "\n")
-        of.write("HTML: " + text + "\n")        
-        of.close()
+        print "storing data in " + outfn + " and " + datefn
+
+        for ofn in (outfn, datefn):
+            of = open(ofn, 'w')        
+            of.write("ID: lingbuzz_" + id + "\n")
+            of.write("URL: " + url + "\n")
+            of.write("PDFURL: " + pdfurl + "\n")
+            of.write("HEADER: " + authortitle + " - " + title + "\n")
+            of.write("TITLE: " + title + "\n")
+            of.write("AUTHORTITLE: " + authortitle + "\n")
+            of.write("RAWAUTHORS: " + rawauthors + "\n")
+            of.write("AUTHORS: " + ", ".join(authors) + "\n")
+            of.write("LASTNAMES: " + ", ".join(lastnames) + "\n")        
+            of.write("MONTH: " + month + "\n")
+            of.write("YEAR: " + year + "\n")
+            of.write("ABSTRACT: " + abstract + "\n")
+            of.write("HTML: " + text + "\n")        
+            of.close()
     return False
 
 def fetchlingbuzz():
