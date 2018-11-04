@@ -33,7 +33,8 @@ def gen_wp(vals):
          "direct link: <a href=\"" + vals['URL'] + "\">" + vals['URL'] + "</a>",
          vals['MONTH'] + " " + vals['YEAR'],
          vals['ABSTRACT'],
-         table
+         table,
+         "\n\n"
          ]
     return "\n".join(s)
 

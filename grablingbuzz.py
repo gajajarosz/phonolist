@@ -49,7 +49,7 @@ def processlingbuzz(parturl):
 
         has_prev_v = (re.search('''<td>previous version''', text))
         if (has_prev_v != None):
-            printf("  Entry for %s is an update; skipping\n", id)
+            print("  Entry for %s is an update; skipping" % id)
             next
 
         for a in re.findall('''>([^<>]+)</a>''', rawauthors, re.I):

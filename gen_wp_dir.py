@@ -27,7 +27,7 @@ def check_all(indir, newdir):
             fh = open(tmp, "w")
             fh.write(s)
             fh.close()
-    print "Found " + found + " old entries; " + miss + " new entries"
+    print "Found " + str(found) + " old entries; " + str(miss) + " new entries"
     
     
 if __name__ == "__main__":
