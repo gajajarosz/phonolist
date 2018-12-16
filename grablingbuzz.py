@@ -47,10 +47,10 @@ def processlingbuzz(parturl):
         authors = []
         lastnames = []
 
-        has_prev_v = (re.search('''<td>previous version''', text))
+        has_prev_v = re.search('''<td>previous version''', text)
         if (has_prev_v != None):
             print("  Entry for %s is an update; skipping" % id)
-            next
+            return True
 
         for a in re.findall('''>([^<>]+)</a>''', rawauthors, re.I):
             authors.append(a)
